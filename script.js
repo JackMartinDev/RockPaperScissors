@@ -72,10 +72,10 @@ function disableButtons() {
   rockButton.disabled = true;
 }
 
+/*
 function game(rounds) {
   for (let i = 0; i < rounds; i++) {
     let computerMove = computerPlay();
-    /*
     let playerMove = prompt("Scissors, Paper, Rock?");
 
     while (
@@ -87,9 +87,8 @@ function game(rounds) {
     }
 
     console.log(play(playerMove, computerMove));
-    */
+    
   }
 }
 
-game(5);
-console.log(`Wins: ${score[0]} Loses: ${score[1]} Draws: ${score[2]}`);
+*/
