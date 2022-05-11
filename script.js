@@ -1,5 +1,24 @@
 let score = [0, 0, 0]; //Wins, Loses, Draws
 
+const paperButton = document.getElementById("paper");
+const scissorsButton = document.getElementById("scissors");
+const rockButton = document.getElementById("rock");
+
+paperButton.addEventListener("click", () => {
+  let result = play("Paper", computerPlay());
+  console.log(result);
+});
+
+scissorsButton.addEventListener("click", () => {
+  let result = play("Scissors", computerPlay());
+  console.log(result);
+});
+
+rockButton.addEventListener("click", () => {
+  let result = play("Rock", computerPlay());
+  console.log(result);
+});
+
 function computerPlay() {
   let computerMove;
   switch (Math.floor(Math.random() * 3)) {
@@ -40,6 +59,7 @@ function play(playerMove, computerMove) {
 function game(rounds) {
   for (let i = 0; i < rounds; i++) {
     let computerMove = computerPlay();
+    /*
     let playerMove = prompt("Scissors, Paper, Rock?");
 
     while (
@@ -51,6 +71,7 @@ function game(rounds) {
     }
 
     console.log(play(playerMove, computerMove));
+    */
   }
 }
 
