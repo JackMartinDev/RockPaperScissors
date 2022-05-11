@@ -3,21 +3,22 @@ let score = [0, 0, 0]; //Wins, Loses, Draws
 const paperButton = document.getElementById("paper");
 const scissorsButton = document.getElementById("scissors");
 const rockButton = document.getElementById("rock");
+let winner = document.createElement("p");
 
 let results = document.querySelector("p");
 
 paperButton.addEventListener("click", () => {
-  let result = play("Paper", computerPlay());
+  play("Paper", computerPlay());
   results.textContent = `Wins: ${score[0]} Loses: ${score[1]} Draws: ${score[2]}`;
 });
 
 scissorsButton.addEventListener("click", () => {
-  let result = play("Scissors", computerPlay());
+  play("Scissors", computerPlay());
   results.textContent = `Wins: ${score[0]} Loses: ${score[1]} Draws: ${score[2]}`;
 });
 
 rockButton.addEventListener("click", () => {
-  let result = play("Rock", computerPlay());
+  play("Rock", computerPlay());
   results.textContent = `Wins: ${score[0]} Loses: ${score[1]} Draws: ${score[2]}`;
 });
 
@@ -40,22 +41,35 @@ function computerPlay() {
 function play(playerMove, computerMove) {
   if (playerMove == computerMove) {
     score[2]++;
-    return "Its a tie!";
   } else if (
     (playerMove == "Scissors" && computerMove == "Paper") ||
     (playerMove == "Rock" && computerMove == "Scissors") ||
     (playerMove == "Paper" && computerMove == "Rock")
   ) {
     score[0]++;
-    return "You Win!";
+    if (score[0] == 5) {
+      winner.textContent = "You Win!";
+      document.body.appendChild(winner);
+      disableButtons();
+    }
   } else if (
     (computerMove == "Scissors" && playerMove == "Paper") ||
     (computerMove == "Rock" && playerMove == "Scissors") ||
     (computerMove == "Paper" && playerMove == "Rock")
   ) {
     score[1]++;
-    return "You lose!";
+    if (score[1] == 5) {
+      winner.textContent = "You Lose!";
+      document.body.appendChild(winner);
+      disableButtons();
+    }
   }
+}
+
+function disableButtons() {
+  paperButton.disabled = true;
+  scissorsButton.disabled = true;
+  rockButton.disabled = true;
 }
 
 function game(rounds) {
