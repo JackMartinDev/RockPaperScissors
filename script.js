@@ -4,19 +4,21 @@ const paperButton = document.getElementById("paper");
 const scissorsButton = document.getElementById("scissors");
 const rockButton = document.getElementById("rock");
 
+let results = document.querySelector("p");
+
 paperButton.addEventListener("click", () => {
   let result = play("Paper", computerPlay());
-  console.log(result);
+  results.textContent = `Wins: ${score[0]} Loses: ${score[1]} Draws: ${score[2]}`;
 });
 
 scissorsButton.addEventListener("click", () => {
   let result = play("Scissors", computerPlay());
-  console.log(result);
+  results.textContent = `Wins: ${score[0]} Loses: ${score[1]} Draws: ${score[2]}`;
 });
 
 rockButton.addEventListener("click", () => {
   let result = play("Rock", computerPlay());
-  console.log(result);
+  results.textContent = `Wins: ${score[0]} Loses: ${score[1]} Draws: ${score[2]}`;
 });
 
 function computerPlay() {
